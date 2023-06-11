@@ -34,7 +34,7 @@
 									<hr>
 									<div class="form-row">
 										<div class="form-group col-2">
-											<label>No. Terima</label>
+											<label>Doc No.</label>
 											<input type="text" name="no_keluar" value="TR<?= time() ?>" readonly class="form-control">
 										</div>
 										<div class="form-group col-3">
@@ -73,6 +73,7 @@
 													<button disabled type="button" class="btn btn-danger btn-block" id="reset"><i class="fa fa-times"></i></button>
 												</div>
 												<input type="hidden" name="nama_customer" value="">
+												<input type="hidden" name="total_barang" value="">
 											</div>
 										</div>
 										<div class="col-md-8">
@@ -147,6 +148,7 @@
 		</div>
 	</div>
 	<?php $this->load->view('partials/js.php') ?>
+	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 	<script>
 		$(document).ready(function(){
 			$('tfoot').hide()
@@ -212,7 +214,8 @@
 				}
 
 				if(parseInt($('input[name="max_hidden"]').val()) <= parseInt(data_keranjang.jumlah)) {
-					alert('stok tidak tersedia! stok tersedia : ' + parseInt($('input[name="max_hidden"]').val()))	
+					swal("Quantity Tidak boleh melebihi yang sudah diinput" , "Qty : " + parseInt($('input[name="max_hidden"]').val()), "error");
+					// alert('stok tidak tersedia! stok tersedia : ' + parseInt($('input[name="max_hidden"]').val()))	
 				} else {
 					$.ajax({
 						url: url_keranjang_barang,

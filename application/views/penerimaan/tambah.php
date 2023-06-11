@@ -34,7 +34,7 @@
 									<hr>
 									<div class="form-row">
 										<div class="form-group col-2">
-											<label>No. Terima</label>
+											<label>Doc No.</label>
 											<input type="text" name="no_terima" value="TR<?= time() ?>" readonly class="form-control">
 										</div>
 										<div class="form-group col-3">
@@ -52,6 +52,10 @@
 										<div class="form-group col-2">
 											<label>Jam</label>
 											<input type="text" name="jam_terima" value="<?= date('H:i:s') ?>" readonly class="form-control">
+										</div>
+										<div class="form-group col-2">
+											<label>Harga</label>
+											<input type="text" name="harga" value=""  class="form-control">
 										</div>
 									</div>
 									<div class="row">

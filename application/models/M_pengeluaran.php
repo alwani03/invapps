@@ -8,7 +8,6 @@ class M_pengeluaran extends CI_Model {
 		$this->db->join('detail_keluar as dk','p.no_keluar=dk.no_keluar');
 		$query=$this->db->get();
 		return $query->result();
-		// return $this->db->get($this->_table)->result();
 	} 
 
 	public function jumlah(){
@@ -26,5 +25,23 @@ class M_pengeluaran extends CI_Model {
 
 	public function hapus($no_keluar){
 		return $this->db->delete($this->_table, ['no_keluar' => $no_keluar]);
+	}
+
+	public function kurang($name_barang, $qty){
+		$query 		= $this->db->select('*');
+		$query 		= $this->db->where(['nama_barang' => $name_barang]);
+		$query 		= $this->db->get('detail_terima');
+		$data_masuk = $query->row() ;
+
+		$sisa 		= $data_masuk->jumlah - $qty;
+	
+
+		$data = array(
+			'jumlah' => $sisa
+		);
+
+		$query_update = $this->db->set($data);
+		$query_update = $this->db->where(['nama_barang' => $name_barang]);
+		$query_update = $this->db->update('detail_terima');
 	}
 }

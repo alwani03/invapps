@@ -50,12 +50,13 @@
 								<thead>
 									<tr>
 										<td>No</td>
-										<td>No Terima</td>
+										<td>Doc No</td>
 										<td>Nama Barang</td>
-										<td>Jumlah</td>
+										<td>Qty</td>
 										<td>Nama Petugas</td>
 										<td>Nama Supplier</td>
 										<td>Tanggal Terima</td>
+										<td>Harga</td>
 										<?php if ($this->session->login['role'] == 'admin'): ?>
 										<td>Aksi</td>
 										<?php endif ?>
@@ -71,6 +72,7 @@
 											<td><?= $penerimaan->nama_petugas ?></td>
 											<td><?= $penerimaan->nama_supplier ?></td>
 											<td><?= $penerimaan->tgl_terima ?> <?= $penerimaan->jam_terima ?></td>
+											<td>Rp. <?= $penerimaan->harga ?></td>
 											<td>
 												<?php if ($this->session->login['role'] == 'admin'): ?>
 												<a href="<?= base_url('penerimaan/detail/' . $penerimaan->no_terima) ?>" class="btn btn-success btn-sm"><i class="fa fa-eye"></i></a>

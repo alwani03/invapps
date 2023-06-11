@@ -22,7 +22,7 @@ class Penerimaan extends CI_Controller{
 	}
 
 	public function tambah(){
-		$this->data['title'] = 'Tambah Transaksi';
+		$this->data['title'] = 'Tambah Data';
 		$this->data['all_barang'] = $this->m_barang->lihat_stok();
 		$this->data['all_supplier'] = $this->m_supplier->lihat_spl();
 
@@ -31,13 +31,14 @@ class Penerimaan extends CI_Controller{
 
 	public function proses_tambah(){
 		$jumlah_barang_diterima = count($this->input->post('nama_barang_hidden'));
-
 		$data_terima = [
-			'no_terima' => $this->input->post('no_terima'),
-			'tgl_terima' => $this->input->post('tgl_terima'),
-			'jam_terima' => $this->input->post('jam_terima'),
+			'no_terima' 	=> $this->input->post('no_terima'),
+			'tgl_terima' 	=> $this->input->post('tgl_terima'),
+			'jam_terima' 	=> $this->input->post('jam_terima'),
 			'nama_supplier' => $this->input->post('nama_supplier'),
-			'nama_petugas' => $this->input->post('nama_petugas'),
+			'nama_petugas' 	=> $this->input->post('nama_petugas'),
+			'harga' 		=> $this->input->post('harga'),
+
 		];
 
 		$data_detail_terima = [];

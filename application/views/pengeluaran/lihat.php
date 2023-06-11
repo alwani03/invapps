@@ -50,7 +50,7 @@
 								<thead>
 									<tr>
 										<td>No</td>
-										<td>No Keluar</td>
+										<td>Doc No. Pembebanan</td>
 										<td>Nama Barang</td>
 										<td>Jumlah</td>
 										<td>Nama Petugas</td>

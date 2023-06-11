@@ -23,10 +23,7 @@ class Pengeluaran extends CI_Controller{
 
 	public function tambah(){
 		$this->data['title'] = 'Pembebanan';
-		$this->data['all_barang'] = $this->m_barang->lihat_stok();
-		echo "<pre>";
-   		print_r($this->data['all_barang']);die();
-		echo "</pre>";
+		$this->data['all_barang'] = $this->m_barang->lihat_data_masuk();
 		$this->data['all_customer'] = $this->m_customer->lihat_cst();
 
 		$this->load->view('pengeluaran/tambah', $this->data);
@@ -36,21 +33,25 @@ class Pengeluaran extends CI_Controller{
 		$jumlah_barang_keluar = count($this->input->post('nama_barang_hidden'));
 
 		$data_keluar = [
-			'no_keluar' => $this->input->post('no_keluar'),
-			'tgl_keluar' => $this->input->post('tgl_keluar'),
-			'jam_keluar' => $this->input->post('jam_keluar'),
-			'nama_customer' => $this->input->post('nama_customer'),
-			'nama_petugas' => $this->input->post('nama_petugas'),
+			'no_keluar' 	 => $this->input->post('no_keluar'),
+			'tgl_keluar' 	 => $this->input->post('tgl_keluar'),
+			'jam_keluar' 	 => $this->input->post('jam_keluar'),
+			'nama_customer'  => $this->input->post('nama_customer'),
+			'nama_petugas' 	 => $this->input->post('nama_petugas'),
 		];
+
+		
 
 		$data_detail_keluar = [];
 
 		for($i = 0; $i < $jumlah_barang_keluar; $i++){
 			array_push($data_detail_keluar, ['no_keluar' => $this->input->post('no_keluar')]);
-			$data_detail_keluar[$i]['nama_barang'] = $this->input->post('nama_barang_hidden')[$i];
-			$data_detail_keluar[$i]['jumlah'] = $this->input->post('jumlah_hidden')[$i];
-			$data_detail_keluar[$i]['satuan'] = $this->input->post('satuan_hidden')[$i];
-			$data_detail_keluar[$i]['keterangan'] = $this->input->post('keterangan_hidden')[$i];
+			$data_detail_keluar[$i]['nama_barang'] 	= $this->input->post('nama_barang_hidden')[$i];
+			$data_detail_keluar[$i]['jumlah'] 		= $this->input->post('jumlah_hidden')[$i];
+			$data_detail_keluar[$i]['satuan'] 		= $this->input->post('satuan_hidden')[$i];
+			$data_detail_keluar[$i]['keterangan'] 	= $this->input->post('keterangan_hidden')[$i];
+
+			$this->m_pengeluaran->kurang($data_detail_keluar[$i]['nama_barang'], $data_detail_keluar[$i]['jumlah']);
 		}
 
 		if($this->m_pengeluaran->tambah($data_keluar) && $this->m_detail_keluar->tambah($data_detail_keluar)){
@@ -82,7 +83,15 @@ class Pengeluaran extends CI_Controller{
 	}
 
 	public function get_all_barang(){
-		$data = $this->m_barang->lihat_nama_barang($_POST['nama_barang']);
+
+		$data 	   = $this->m_barang->lihat_nama_barang($_POST['nama_barang']);
+		$datastock = $this->m_barang->lihat_nama_barang_masuk($_POST['nama_barang']);
+
+		if(isset($datastock->jumlah)){
+			$data->stok = $datastock->jumlah;
+		}else{
+			$data->stok = 0;
+		}
 		echo json_encode($data);
 	}
 

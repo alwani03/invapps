@@ -17,6 +17,11 @@ class M_barang extends CI_Model{
 		$query = $this->db->get_where($this->_table, 'stok > 1');
 		return $query->result();
 	}
+	public function lihat_data_masuk(){
+		$query = $this->db->get_where('detail_terima', '1 = 1');
+		return $query->result();
+	}
+
 
 	public function lihat_id($kode_barang){
 		$query = $this->db->get_where($this->_table, ['kode_barang' => $kode_barang]);
@@ -27,6 +32,14 @@ class M_barang extends CI_Model{
 		$query = $this->db->select('*');
 		$query = $this->db->where(['nama_barang' => $nama_barang]);
 		$query = $this->db->get($this->_table);
+		return $query->row();
+	}
+
+
+	public function lihat_nama_barang_masuk($nama_barang){
+		$query = $this->db->select('*');
+		$query = $this->db->where(['nama_barang' => $nama_barang]);
+		$query = $this->db->get('detail_terima');
 		return $query->row();
 	}
 
