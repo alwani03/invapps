@@ -41,7 +41,7 @@
                                 <div class="p-5">
                             <div class="text-center mb-4">
                                 <h1 class="h4 text-gray-900">Invapps</h1>
-                                <span class="text-muted">Aplikasi apa yah</span>
+                                <span class="text-muted">Inventory Aplication</span>
 			                            </div>
 																		<div class="row">
 																			<div class="col-lg-12">

@@ -12,7 +12,7 @@
                 echo "</font>";
               ?>
           <div class="topbar-divider d-none d-sm-block"></div>
-          <marquee><font size="4" face="Copperplate Gothic Bold">Invapps <b><i>bla bla bla</b></i></font></marquee>
+          <marquee><font size="4" face="Copperplate Gothic Bold">Invapps <b><i>Inventory Aplication</b></i></font></marquee>
 					<!-- Topbar Navbar -->
 					<ul class="navbar-nav ml-auto">
 						<!-- Nav Item - Search Dropdown (Visible Only XS) -->
