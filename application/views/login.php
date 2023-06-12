@@ -16,14 +16,14 @@
 	<link href="<?= base_url('sb-admin') ?>/vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
 <style>
         .bg-login-image {
-            background-image: url("<?= base_url('sb-admin/img/pes.png'); ?>");
+            background-image: url("<?= base_url('sb-admin/img/login.png'); ?>");
             background-repeat: no-repeat; 
             background-size: 85%;
         }
     </style>
 </head>
 
-<body class="bg-gradient-primary">
+<body class="bg-gradient-dark">
 
     <div class="container">
 
@@ -40,8 +40,8 @@
                             <div class="col-lg-6">
                                 <div class="p-5">
                             <div class="text-center mb-4">
-                                <h1 class="h4 text-gray-900">.: Aplikasi SIM Stok Barang :.</h1>
-                                <span class="text-muted">Perlengkapan dan Inventarisasi Aset</span>
+                                <h1 class="h4 text-gray-900">Invapps</h1>
+                                <span class="text-muted">Aplikasi apa yah</span>
 			                            </div>
 																		<div class="row">
 																			<div class="col-lg-12">
@@ -86,11 +86,8 @@
 																		</div>
 																	</div>
 																</div>
-
 															</div>
-
 														</div>
-
 													</div>
 
 	<script src="<?= base_url('sb-admin') ?>/vendor/jquery/jquery.min.js"></script>
