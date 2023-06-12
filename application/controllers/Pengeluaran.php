@@ -103,7 +103,7 @@ class Pengeluaran extends CI_Controller{
 		$dompdf = new Dompdf();
 		// $this->data['perusahaan'] = $this->m_usaha->lihat();
 		$this->data['all_pengeluaran'] = $this->m_pengeluaran->lihat();
-		$this->data['title'] = 'Laporan Data Pengeluaran';
+		$this->data['title'] = 'Laporan Data Pembebanan';
 		$this->data['no'] = 1;
 
 		$dompdf->setPaper('A4', 'Landscape');

@@ -17,12 +17,12 @@
 		<table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
 			<thead>
 				<tr>
-					<td>No Terima</td>
+					<td>Doc No</td>
 					<td>Nama Barang</td>
-					<td>Jumlah</td>
+					<td>Quantity</td>
 					<td>Nama Petugas</td>
 					<td>Nama Supplier</td>
-					<td>Tanggal Terima</td>
+					<td>Tanggal Data Masuk</td>
 				</tr>
 			</thead>
 			<tbody>

@@ -92,7 +92,7 @@ class Penerimaan extends CI_Controller{
 		$dompdf = new Dompdf();
 		// $this->data['perusahaan'] = $this->m_usaha->lihat();
 		$this->data['all_penerimaan'] = $this->m_penerimaan->lihat();
-		$this->data['title'] = 'Laporan Data Penerimaan';
+		$this->data['title'] = 'Laporan Data Masuk';
 		$this->data['no'] = 1;
 
 		$dompdf->setPaper('A4', 'Landscape');
