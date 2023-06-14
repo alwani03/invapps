@@ -16,15 +16,15 @@ class Dashboard extends CI_Controller{
 	}
 
 	public function index(){
-		$this->data['title'] = 'Halaman Dashboard';
-		$this->data['jumlah_barang'] = $this->m_barang->jumlah();
-		$this->data['jumlah_customer'] = $this->m_customer->jumlah();
-		$this->data['jumlah_supplier'] = $this->m_supplier->jumlah();
-		$this->data['jumlah_petugas'] = $this->m_petugas->jumlah();
-		$this->data['jumlah_pengeluaran'] = $this->m_pengeluaran->jumlah();
-		$this->data['jumlah_penerimaan'] = $this->m_penerimaan->jumlah();
-		$this->data['jumlah_pengguna'] = $this->m_pengguna->jumlah();
-		$this->data['toko'] = $this->m_toko->lihat();
+		$this->data['title'] 				= 'Halaman Dashboard';
+		$this->data['jumlah_barang'] 		= $this->m_barang->total_barang();
+		$this->data['jumlah_customer'] 		= $this->m_customer->total_quantity();
+		$this->data['jumlah_supplier'] 		= $this->m_supplier->jumlah();
+		$this->data['jumlah_petugas'] 		= $this->m_customer->total_quantity();
+		$this->data['jumlah_pengeluaran'] 	= $this->m_pengeluaran->total_pembebanan();
+		$this->data['jumlah_penerimaan'] 	= $this->m_penerimaan->jumlah();
+		$this->data['jumlah_pengguna'] 		= $this->m_pengguna->jumlah();
+		$this->data['toko'] 				= $this->m_toko->lihat();
 		$this->load->view('dashboard', $this->data);
 	}
 }

@@ -13,6 +13,23 @@ class M_customer extends CI_Model{
 		return $query->num_rows();
 	}
 
+	public function total_quantity(){
+		
+		$this->db->select_sum('jumlah');
+		$this->db->from('detail_keluar');
+		$query 				 = $this->db->get();
+		$count_detail_keluar = $query->result()[0]->jumlah;
+
+		$this->db->select_sum('jumlah');
+		$this->db->from('detail_terima');
+		$query_2 			 = $this->db->get();
+		$count_detail_terima = $query_2->result()[0]->jumlah;
+
+		$total = $count_detail_keluar + $count_detail_terima;
+	
+		return $total;
+	}
+
 	public function lihat_cst(){
 		$query = $this->db->select('nama');
 		$query = $this->db->get($this->_table);

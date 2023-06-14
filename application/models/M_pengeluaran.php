@@ -15,6 +15,15 @@ class M_pengeluaran extends CI_Model {
 		return $query->num_rows();
 	}
 
+	public function total_pembebanan(){
+
+		$this->db->select_sum('jumlah');
+		$this->db->from('detail_keluar');
+		$query_2 			 = $this->db->get();
+		$count_detail_terima = $query_2->result()[0]->jumlah;
+		return $count_detail_terima;
+	}
+
 	public function lihat_no_keluar($no_keluar){
 		return $this->db->get_where($this->_table, ['no_keluar' => $no_keluar])->row();
 	}

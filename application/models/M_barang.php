@@ -13,6 +13,13 @@ class M_barang extends CI_Model{
 		return $query->num_rows();
 	}
 
+	public function total_barang(){
+		$this->db->distinct();
+		$this->db->select('nama_barang');
+		$query = $this->db->get('detail_terima');
+		return $query->num_rows();
+	}
+
 	public function lihat_stok(){
 		$query = $this->db->get_where($this->_table, 'stok > 1');
 		return $query->result();
