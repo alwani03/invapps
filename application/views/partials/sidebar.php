@@ -76,7 +76,7 @@
 				<li class="nav-item <?= $aktif == 'toko' ? 'active' : '' ?>">
 					<a class="nav-link" href="<?= base_url('toko') ?>">
 						<i class="fas fa-fw fa-building"></i>
-						<span>Profil SIM</span></a>
+						<span>Profil</span></a>
 				</li>
 				
 				<li class="nav-item">
