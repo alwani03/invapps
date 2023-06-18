@@ -123,6 +123,15 @@ class Pengeluaran extends CI_Controller
 		$dompdf->stream('Laporan Data Pengeluaran Tanggal ' . date('d F Y'), array("Attachment" => false));
 	}
 
+	public function Report(){
+		$dompdf 						= new Dompdf();
+		$this->data['all_pengeluaran'] = $this->m_pengeluaran->lihat();
+		$this->data['title'] 			= 'Laporan Data Pembebanan';
+		$this->data['no'] 				= 1;
+
+		 $this->load->view('pengeluaran/report_new', $this->data);
+	}
+
 	public function export_detail($no_keluar)
 	{
 		$dompdf = new Dompdf();

@@ -102,6 +102,14 @@ class Penerimaan extends CI_Controller{
 		$dompdf->stream('Laporan Data Penerimaan Tanggal ' . date('d F Y'), array("Attachment" => false));
 	}
 
+	public function Report(){
+		$this->data['all_penerimaan'] 	= $this->m_penerimaan->lihat();
+		$this->data['title'] 			= 'Laporan Data Masuk';
+		$this->data['no'] 				= 1;
+
+		 $this->load->view('penerimaan/report_new', $this->data);
+	}
+
 	public function export_detail($no_terima){
 		$dompdf = new Dompdf();
 		// $this->data['perusahaan'] = $this->m_usaha->lihat();
